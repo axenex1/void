@@ -37,14 +37,14 @@ type Tab =
 type AgentDefinition = {
 	name: string;
 	description: string;
-}
+};
 
 const registeredAgents: AgentDefinition[] = [
 	{
 		name: 'g0dm0d3.ai API',
 		description: 'Example AI agent.',
 	},
-]
+];
 
 
 const ButtonLeftTextRightOption = ({ text, leftButton }: { text: string, leftButton?: React.ReactNode }) => {
@@ -1203,7 +1203,7 @@ export const Settings = () => {
 							<div className={shouldShowTab('agents') ? `` : 'hidden'}>
 								<ErrorBoundary>
 									<h2 className={`text-3xl mb-2`}>Agents</h2>
-									<h3 className={`text-void-fg-3 mb-4`}>{`Manage your AI agents. g0dm0d3 agents and future custom agents live here.`}</h3>
+									<h3 className={`text-void-fg-3 mb-4`}>{`Manage your AI agents. g0dm0d3.ai agents and future custom agents live here.`}</h3>
 									<div className='flex flex-col gap-2'>
 										{registeredAgents.map(agent => (
 											<div

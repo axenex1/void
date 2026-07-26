@@ -35,12 +35,14 @@ type Tab =
 	| 'all';
 
 type AgentDefinition = {
+	id: string;
 	name: string;
 	description: string;
 };
 
 const registeredAgents: AgentDefinition[] = [
 	{
+		id: 'g0dm0d3-ai-api',
 		name: 'g0dm0d3.ai API',
 		description: 'Default example agent powered by your g0dm0d3.ai API integration.',
 	},
@@ -1207,7 +1209,7 @@ export const Settings = () => {
 									<div className='flex flex-col gap-2'>
 										{registeredAgents.map(agent => (
 											<div
-												key={agent.name}
+												key={agent.id}
 												className='flex flex-col gap-1 py-2 px-3 rounded-sm bg-void-bg-2 border border-void-border-2'
 											>
 												<div className='text-sm'>{agent.name}</div>

@@ -42,7 +42,7 @@ type AgentDefinition = {
 const registeredAgents: AgentDefinition[] = [
 	{
 		name: 'g0dm0d3.ai API',
-		description: 'Example AI agent.',
+		description: 'Default example agent powered by your g0dm0d3.ai API integration.',
 	},
 ];
 

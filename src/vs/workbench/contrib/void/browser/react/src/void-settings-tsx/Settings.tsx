@@ -26,12 +26,25 @@ import { StorageScope, StorageTarget } from '../../../../../../../platform/stora
 
 type Tab =
 	| 'models'
+	| 'agents'
 	| 'localProviders'
 	| 'providers'
 	| 'featureOptions'
 	| 'mcp'
 	| 'general'
 	| 'all';
+
+type AgentDefinition = {
+	name: string;
+	description: string;
+}
+
+const registeredAgents: AgentDefinition[] = [
+	{
+		name: 'g0dm0d3.ai API',
+		description: 'Example AI agent.',
+	},
+]
 
 
 const ButtonLeftTextRightOption = ({ text, leftButton }: { text: string, leftButton?: React.ReactNode }) => {
@@ -1037,6 +1050,7 @@ export const Settings = () => {
 
 	const navItems: { tab: Tab; label: string }[] = [
 		{ tab: 'models', label: 'Models' },
+		{ tab: 'agents', label: 'Agents' },
 		{ tab: 'localProviders', label: 'Local Providers' },
 		{ tab: 'providers', label: 'Main Providers' },
 		{ tab: 'featureOptions', label: 'Feature Options' },
@@ -1182,6 +1196,25 @@ export const Settings = () => {
 									<div className='w-full h-[1px] my-4' />
 									<AutoDetectLocalModelsToggle />
 									<RefreshableModels />
+								</ErrorBoundary>
+							</div>
+
+							{/* Agents section */}
+							<div className={shouldShowTab('agents') ? `` : 'hidden'}>
+								<ErrorBoundary>
+									<h2 className={`text-3xl mb-2`}>Agents</h2>
+									<h3 className={`text-void-fg-3 mb-4`}>{`Manage your AI agents. g0dm0d3 agents and future custom agents live here.`}</h3>
+									<div className='flex flex-col gap-2'>
+										{registeredAgents.map(agent => (
+											<div
+												key={agent.name}
+												className='flex flex-col gap-1 py-2 px-3 rounded-sm bg-void-bg-2 border border-void-border-2'
+											>
+												<div className='text-sm'>{agent.name}</div>
+												<div className='text-xs text-void-fg-3'>{agent.description}</div>
+											</div>
+										))}
+									</div>
 								</ErrorBoundary>
 							</div>
 
